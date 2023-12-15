@@ -31,21 +31,10 @@ namespace _12_08.Controllers
         }
 
         // POST api/<StockController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("GetConditon")]
+        public IEnumerable<StockDto> Post([FromBody] StockDto inpara)
         {
-        }
-
-        // PUT api/<StockController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<StockController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return _stockRepository.GetCond(inpara);
         }
     }
 }
